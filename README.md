@@ -2,7 +2,7 @@
 
 
 
-### 🌐 [CLICK HERE TO LAUNCH THE WEB APP / اضغط هنا لفتح التطبيق المباشر] (https://rushodin.github.io/free-voices-translator/)
+### 🌐 [CLICK HERE TO LAUNCH THE WEB APP / اضغط هنا لفتح التطبيق المباشر](https://rushodin.github.io/free-voices-translator/)
 
 
 
