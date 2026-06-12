@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أصوات حرة | مترجم المحتوى غير الخاضع للرقابة</title>
+<meta name="description" content="محرك ترجمة لا مركزي لتجاوز مقص الرقابة وتوفير ترجمات دقيقة للسينما العالمية والكويرية باللغة العربية.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/RushOdin/free-voices-translator/">
+    <meta property="og:title" content="أصوات حرة | مترجم المحتوى غير الخاضع للرقابة">
+    <meta property="og:description" content="محرك ترجمة لا مركزي لتجاوز مقص الرقابة وتوفير ترجمات دقيقة للسينما العالمية والكويرية باللغة العربية. يعمل محلياً بأمان تام.">
+    <meta property="og:image" content="https://github.com/RushOdin/free-voices-translator/preview.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://github.com/RushOdin/free-voices-translator/">
+    <meta property="twitter:title" content="أصوات حرة | مترجم المحتوى غير الخاضع للرقابة">
+    <meta property="twitter:description" content="محرك ترجمة لا مركزي لتجاوز مقص الرقابة وتوفير ترجمات دقيقة للسينما العالمية والكويرية باللغة العربية. يعمل محلياً بأمان تام.">
+    <meta property="twitter:image" content="https://github.com/RushOdin/free-voices-translator/preview.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { darkMode: 'class' };
@@ -34,6 +47,9 @@
                 </div>
             </div>
             <div class="flex items-center gap-2 sm:gap-4">
+<button id="btn-download-app" class="p-2 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-800 transition" title="تحميل التطبيق للعمل محلياً بدون إنترنت">
+                    <i class="fa-solid fa-cloud-arrow-down text-lg"></i>
+                </button>
                 <a href="https://github.com/RushOdin/free-voices-translator" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="المساهمة وتطوير الكود على GitHub">
                     <i class="fa-brands fa-github text-lg"></i>
                 </a>
@@ -403,6 +419,30 @@
                 });
 
                 // Button Attachments
+// Self-Replication (Download App Locally)
+                const btnDownloadApp = document.getElementById('btn-download-app');
+                if(btnDownloadApp) {
+                    btnDownloadApp.addEventListener('click', () => {
+                        // Capture the entire HTML structure of the current page
+                        const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+                        
+                        // Package it into a binary blob
+                        const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+                        const url = URL.createObjectURL(blob);
+                        
+                        // Create a temporary mechanical link to force the download
+                        const a = document.createElement('a');
+                        a.href = url;
+                        // Descriptive Arabic filename
+                        a.download = 'تطبيق_أصوات_حرة_للترجمة.html';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                        
+                        UI.showToast("تم تحميل واجهة التطبيق بنجاح. يمكنك الآن تشغيله أو إرساله للآخرين للعمل بدون إنترنت.", "success");
+                    });
+                }
                 const btnSearch = document.getElementById('btn-search');
                 if(btnSearch) btnSearch.addEventListener('click', Logic.searchSubtitles);
 
