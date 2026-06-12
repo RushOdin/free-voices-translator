@@ -69,7 +69,7 @@
 
 ***
 
-**#English:**
+#English:
 
 
 Information wants to be free. Dogmatic censorship and state-sanctioned moral policing rely on keeping it quarantined. 
