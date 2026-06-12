@@ -20,21 +20,24 @@
         .ltr-text { direction: ltr; text-align: left; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col h-screen overflow-hidden bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50">
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50">
 
-    <!-- Header -->
-    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm z-30 shrink-0">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm z-30 shrink-0 sticky top-0">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-language text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="font-bold text-xl tracking-tight text-slate-800 dark:text-slate-100">أصوات حرة</h1>
-                    <p class="text-[10px] text-slate-500 dark:text-slate-400 font-bold tracking-wider">تجاوز الرقابة. ترجم بحرية.</p>
+                    <h1 class="font-bold text-lg sm:text-xl tracking-tight text-slate-800 dark:text-slate-100">أصوات حرة</h1>
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400 font-bold tracking-wider hidden sm:block">تجاوز الرقابة. ترجم بحرية.</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 sm:gap-4">
+                <a href="https://github.com/RushOdin/free-voices-translator" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="المساهمة وتطوير الكود على GitHub">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                
                 <button id="btn-dark-mode" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="تغيير المظهر">
                     <i class="fa-solid fa-sun"></i>
                 </button>
@@ -42,35 +45,31 @@
         </div>
     </header>
 
-    <!-- Main Workspace -->
-    <main class="flex-1 overflow-y-auto p-4 sm:p-8 relative">
+    <main class="flex-1 p-4 sm:p-8 relative">
         <div class="max-w-3xl mx-auto space-y-6 pb-20">
 
-            <!-- Welcome Message -->
-            <div class="text-center mb-8">
+            <div class="text-center mb-8 mt-4">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-slate-800 dark:text-white">أهلاً بك في أداة الترجمة الحرة</h2>
                 <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
                     هذه الأداة مصممة لتجاوز الرقابة الدوغمائية وتوفير ترجمات دقيقة وموضوعية للسينما العالمية والمحتوى الكويري إلى اللغة العربية. لا يتم تخزين بياناتك، والعملية تعتمد على المعالجة المباشرة.
                 </p>
             </div>
 
-            <!-- Step 1: Input -->
-            <div id="step-1" class="glass-panel border border-slate-200 dark:border-slate-800 rounded-2xl shadow-lg p-6 transition-all duration-500">
+            <div id="step-1" class="glass-panel border border-slate-200 dark:border-slate-800 rounded-2xl shadow-lg p-4 sm:p-6 transition-all duration-500">
                 <div class="flex items-center gap-4 mb-6 border-b border-slate-100 dark:border-slate-800/50 pb-4">
-                    <div class="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400 flex items-center justify-center font-bold text-xl shadow-sm">1</div>
+                    <div class="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400 flex items-center justify-center font-bold text-xl shadow-sm shrink-0">1</div>
                     <div>
-                        <h2 class="text-xl font-bold text-slate-800 dark:text-slate-100">الخطوة الأولى: جلب ملف الترجمة</h2>
+                        <h2 class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100">الخطوة الأولى: جلب ملف الترجمة</h2>
                         <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">ارفع ملف الترجمة الأصلي لبدء المعالجة.</p>
                     </div>
                 </div>
 
                 <div class="space-y-6">
 
-                    <!-- Beginner Guide (Collapsible) -->
                     <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800/50 rounded-xl p-4">
-                        <button id="toggle-guide" class="flex items-center justify-between w-full text-indigo-700 dark:text-indigo-300 font-bold hover:text-indigo-800 dark:hover:text-indigo-200 transition-colors outline-none">
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-circle-question text-lg"></i> من أين أحصل على ملف الترجمة الأصلي؟ (دليل البحث)</span>
-                            <i class="fa-solid fa-chevron-down transition-transform duration-300" id="guide-chevron"></i>
+                        <button id="toggle-guide" class="flex items-center justify-between w-full text-indigo-700 dark:text-indigo-300 font-bold hover:text-indigo-800 dark:hover:text-indigo-200 transition-colors outline-none text-right">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-circle-question text-lg shrink-0"></i> من أين أحصل على ملف الترجمة الأصلي؟ (دليل البحث)</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300 shrink-0" id="guide-chevron"></i>
                         </button>
                         <div id="guide-section" class="hidden mt-4 pt-4 border-t border-indigo-200 dark:border-indigo-800/50 space-y-4 text-sm text-indigo-900 dark:text-indigo-100">
                             <p class="leading-relaxed">للبدء، تحتاج إلى تحميل ملف الترجمة الأصلي (باللغة الإنجليزية غالباً) للفيلم أو المسلسل لكي يقوم نظامنا بتعريبه لك وتجاوز مقص الرقابة. يمكنك الحصول عليه بسهولة عبر خيارين:</p>
@@ -87,43 +86,40 @@
                             <div class="bg-white dark:bg-slate-900 rounded-lg p-4 border border-indigo-100 dark:border-indigo-800/50 shadow-sm">
                                 <h4 class="font-bold mb-2 flex items-center gap-2 text-indigo-600 dark:text-indigo-400"><i class="fa-solid fa-robot"></i> الطريقة الثانية: الاستعانة بالذكاء الاصطناعي</h4>
                                 <p class="mb-3 text-slate-700 dark:text-slate-300">إذا كنت تواجه صعوبة في البحث، انسخ هذا النص وضعه في أي ذكاء اصطناعي (مثل ChatGPT أو Claude) ليقوم بالمهمة نيابة عنك:</p>
-                                <span class="inline-block bg-indigo-50 dark:bg-slate-800 px-4 py-3 rounded-lg border border-indigo-200 dark:border-indigo-700 text-slate-800 dark:text-slate-200 select-all cursor-pointer font-semibold shadow-inner w-full leading-relaxed">"أبحث عن ملف ترجمة باللغة الإنجليزية بصيغة (SRT) لفيلم/مسلسل [اكتب اسم العمل هنا]. هل يمكنك تزويدي بروابط مباشرة أو أسماء مواقع موثوقة لتحميله فوراً مع شرح مبسط للخطوات؟"</span>
+                                <span class="inline-block bg-indigo-50 dark:bg-slate-800 px-4 py-3 rounded-lg border border-indigo-200 dark:border-indigo-700 text-slate-800 dark:text-slate-200 select-all cursor-pointer font-semibold shadow-inner w-full leading-relaxed break-words">"أبحث عن ملف ترجمة باللغة الإنجليزية بصيغة (SRT) لفيلم/مسلسل [اكتب اسم العمل هنا]. هل يمكنك تزويدي بروابط مباشرة أو أسماء مواقع موثوقة لتحميله فوراً مع شرح مبسط للخطوات؟"</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- File Upload Area -->
                     <div class="relative group">
                         <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                         <label class="relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl cursor-pointer bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6 px-4 text-center">
                                 <i class="fa-solid fa-cloud-arrow-up text-5xl text-slate-400 mb-4 group-hover:text-pink-500 transition-colors"></i>
-                                <p class="mb-2 text-lg font-semibold text-slate-700 dark:text-slate-200" id="file-name-display">اضغط هنا لاختيار الملف</p>
-                                <p class="text-sm text-slate-500 dark:text-slate-400">أو قم بسحب وإفلات الملف هنا (صيغة .srt أو .vtt)</p>
+                                <p class="mb-2 text-base sm:text-lg font-semibold text-slate-700 dark:text-slate-200" id="file-name-display">اضغط هنا لاختيار الملف</p>
+                                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">أو قم بسحب وإفلات الملف هنا (صيغة .srt أو .vtt)</p>
                             </div>
                             <input type="file" id="file-input" class="hidden" accept=".srt,.vtt,.txt">
                         </label>
                     </div>
 
-                    <!-- Hidden raw input for the engine -->
                     <textarea id="raw-code-input" class="hidden"></textarea>
 
-                    <!-- Advanced Search Alternative -->
                     <div class="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
-                        <button id="toggle-search" class="flex items-center justify-between w-full text-slate-600 dark:text-slate-300 font-semibold hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i> البحث المباشر في قواعد بيانات الترجمة عبر الإنترنت</span>
-                            <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300" id="search-chevron"></i>
+                        <button id="toggle-search" class="flex items-center justify-between w-full text-slate-600 dark:text-slate-300 font-semibold hover:text-pink-600 dark:hover:text-pink-400 transition-colors outline-none text-right">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass shrink-0"></i> البحث المباشر في قواعد بيانات الترجمة عبر الإنترنت</span>
+                            <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300 shrink-0" id="search-chevron"></i>
                         </button>
                         <div id="search-section" class="hidden mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
                             
                             <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 rounded-lg p-4 mb-4 text-sm">
-                                <p class="font-bold text-blue-800 dark:text-blue-300 mb-2 flex items-center gap-2"><i class="fa-solid fa-lightbulb"></i> كيف تعمل هذه الخاصية؟</p>
+                                <p class="font-bold text-blue-800 dark:text-blue-300 mb-2 flex items-center gap-2"><i class="fa-solid fa-lightbulb shrink-0"></i> كيف تعمل هذه الخاصية؟</p>
                                 <p class="text-blue-700 dark:text-blue-400 leading-relaxed mb-2">
                                     للاتصال بقواعد بيانات الترجمة العالمية، تحتاج إلى <strong>"مفتاح واجهة برمجة" (API Key)</strong> مجاني. هذا مجرد رمز مرور يثبت للموقع أنك إنسان ولست روبوت إزعاج.
                                 </p>
                                 <p class="text-blue-700 dark:text-blue-400 leading-relaxed font-semibold">
                                     الخطوة بسيطة جداً: افتح أي ذكاء اصطناعي (مثل ChatGPT) وانسخ له هذا النص بدقة ليرشدك: <br>
-                                    <span class="inline-block bg-white dark:bg-slate-800 px-3 py-2 rounded-lg border border-blue-200 dark:border-blue-700 mt-2 text-slate-800 dark:text-slate-200 select-all cursor-pointer text-sm leading-relaxed shadow-sm">"أريد خطوات مفصلة للمبتدئين لإنشاء حساب مجاني والحصول على مفتاح برمجي (API Key) من موقع OpenSubtitles.com أو موقع Subdl.com (أيهما أسهل ومجاني حالياً)، لاستخدامه في تطبيق ويب شخصي للبحث عن ترجمات الأفلام والمسلسلات."</span>
+                                    <span class="inline-block bg-white dark:bg-slate-800 px-3 py-2 rounded-lg border border-blue-200 dark:border-blue-700 mt-2 text-slate-800 dark:text-slate-200 select-all cursor-pointer text-sm leading-relaxed shadow-sm break-words">"أريد خطوات مفصلة للمبتدئين لإنشاء حساب مجاني والحصول على مفتاح برمجي (API Key) من موقع OpenSubtitles.com أو موقع Subdl.com (أيهما أسهل ومجاني حالياً)، لاستخدامه في تطبيق ويب شخصي للبحث عن ترجمات الأفلام والمسلسلات."</span>
                                 </p>
                             </div>
 
@@ -155,25 +151,23 @@
                 </div>
             </div>
 
-            <!-- Step 2: Translation Progress & Review -->
-            <div id="step-2" class="glass-panel border border-slate-200 dark:border-slate-800 rounded-2xl shadow-lg p-6 transition-all duration-500 hidden opacity-0">
+            <div id="step-2" class="glass-panel border border-slate-200 dark:border-slate-800 rounded-2xl shadow-lg p-4 sm:p-6 transition-all duration-500 hidden opacity-0">
                 <div class="flex items-center gap-4 mb-6 border-b border-slate-100 dark:border-slate-800/50 pb-4">
-                    <div class="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400 flex items-center justify-center font-bold text-xl shadow-sm">2</div>
+                    <div class="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400 flex items-center justify-center font-bold text-xl shadow-sm shrink-0">2</div>
                     <div>
-                        <h2 class="text-xl font-bold text-slate-800 dark:text-slate-100">الخطوة الثانية: المراجعة والتوليد</h2>
+                        <h2 class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100">الخطوة الثانية: المراجعة والتوليد</h2>
                         <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">تأكد من سلامة السياق الثقافي والدرامي، أو قم بالتوليد المباشر.</p>
                     </div>
                 </div>
                 
-                <!-- Loading State -->
                 <div id="translation-progress-container" class="py-12 text-center flex flex-col items-center justify-center hidden">
                     <div class="relative w-20 h-20 mb-6">
                         <div class="absolute inset-0 border-4 border-slate-200 dark:border-slate-700 rounded-full"></div>
                         <div class="absolute inset-0 border-4 border-pink-500 rounded-full border-t-transparent animate-spin"></div>
                         <i class="fa-solid fa-language absolute inset-0 flex items-center justify-center text-2xl text-pink-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">جاري المعالجة والخوارزميات...</h3>
-                    <p class="text-slate-500 mb-6">يتم الآن ترجمة النصوص وتكييفها مع العرض من اليمين لليسار.</p>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">جاري المعالجة والخوارزميات...</h3>
+                    <p class="text-slate-500 mb-6 text-sm">يتم الآن ترجمة النصوص وتكييفها مع العرض من اليمين لليسار.</p>
                     
                     <div class="w-full max-w-md mx-auto bg-slate-200 dark:bg-slate-700 rounded-full h-3 mb-2 overflow-hidden shadow-inner">
                         <div id="translation-progress-bar" class="bg-gradient-to-r from-pink-500 to-purple-600 h-full transition-all duration-300" style="width: 0%"></div>
@@ -181,27 +175,25 @@
                     <p class="text-sm text-slate-500 font-mono font-bold"><span id="translation-current">0</span> / <span id="translation-total">0</span> مقطع</p>
                 </div>
 
-                <!-- Review UI -->
                 <div id="translation-review-container" class="hidden">
                     <div class="text-center mb-6">
-                        <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">تمت الترجمة الأولية بنجاح</h3>
-                        <p class="text-slate-600 dark:text-slate-400">يمكنك إنشاء الملف فوراً، أو عرض المعاينة للتنقيح اليدوي وتصحيح السياقات الثقافية.</p>
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">تمت الترجمة الأولية بنجاح</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">يمكنك إنشاء الملف فوراً، أو عرض المعاينة للتنقيح اليدوي وتصحيح السياقات الثقافية.</p>
                     </div>
 
-                    <div class="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden mb-6 max-h-[500px] overflow-y-auto p-2 sm:p-4 space-y-4 shadow-inner hidden" id="translation-edit-list">
-                        <!-- Populated dynamically -->
-                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden mb-6 max-h-[60vh] overflow-y-auto p-2 sm:p-4 space-y-4 shadow-inner hidden" id="translation-edit-list">
+                        </div>
                     
-                    <div class="flex flex-col items-center gap-4 bg-slate-100 dark:bg-slate-800/80 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                        <button id="btn-compile" class="w-full px-8 py-5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-extrabold text-xl rounded-xl shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-3">
-                            اعتماد الترجمة وتوليد الملف <i class="fa-solid fa-check-double text-2xl"></i>
+                    <div class="flex flex-col items-center gap-4 bg-slate-100 dark:bg-slate-800/80 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <button id="btn-compile" class="w-full px-6 py-4 sm:py-5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-extrabold text-lg sm:text-xl rounded-xl shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-3">
+                            اعتماد الترجمة وتوليد الملف <i class="fa-solid fa-check-double text-xl sm:text-2xl"></i>
                         </button>
                         
-                        <div class="flex flex-col sm:flex-row w-full justify-between gap-4 mt-2">
-                            <button id="btn-toggle-preview" class="flex-1 px-6 py-3 bg-white dark:bg-slate-900 border-2 border-pink-500 text-pink-600 dark:text-pink-400 font-bold rounded-lg shadow-sm hover:bg-pink-50 dark:hover:bg-slate-800 transition flex items-center justify-center gap-2">
+                        <div class="flex flex-col sm:flex-row w-full justify-between gap-3 mt-2">
+                            <button id="btn-toggle-preview" class="flex-1 px-4 sm:px-6 py-3 bg-white dark:bg-slate-900 border-2 border-pink-500 text-pink-600 dark:text-pink-400 font-bold rounded-lg shadow-sm hover:bg-pink-50 dark:hover:bg-slate-800 transition flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-pen-to-square"></i> معاينة وتعديل يدوياً
                             </button>
-                            <button class="btn-back flex-1 px-6 py-3 rounded-lg text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 transition font-semibold flex items-center justify-center gap-2" data-target="step-1">
+                            <button class="btn-back flex-1 px-4 sm:px-6 py-3 rounded-lg text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 transition font-semibold flex items-center justify-center gap-2" data-target="step-1">
                                 <i class="fa-solid fa-arrow-right"></i> إلغاء ورجوع
                             </button>
                         </div>
@@ -209,18 +201,17 @@
                 </div>
             </div>
 
-            <!-- Step 3: Output -->
-            <div id="step-3" class="glass-panel border border-slate-200 dark:border-slate-800 rounded-2xl shadow-lg p-8 transition-all duration-500 hidden opacity-0 text-center">
-                <div class="w-24 h-24 mx-auto bg-gradient-to-br from-green-400 to-green-600 text-white rounded-full flex items-center justify-center text-5xl mb-6 shadow-xl transform scale-110">
+            <div id="step-3" class="glass-panel border border-slate-200 dark:border-slate-800 rounded-2xl shadow-lg p-6 sm:p-8 transition-all duration-500 hidden opacity-0 text-center">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto bg-gradient-to-br from-green-400 to-green-600 text-white rounded-full flex items-center justify-center text-4xl sm:text-5xl mb-6 shadow-xl transform scale-110">
                     <i class="fa-solid fa-check"></i>
                 </div>
-                <h2 class="text-3xl font-extrabold text-slate-800 dark:text-white mb-3">تم التوليف بنجاح!</h2>
-                <p class="text-slate-600 dark:text-slate-400 mb-8 text-lg">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white mb-3">تم التوليف بنجاح!</h2>
+                <p class="text-slate-600 dark:text-slate-400 mb-8 text-base sm:text-lg">
                     الملف الآن متوافق تماماً مع مشغلات الفيديو.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                    <button id="btn-download" class="px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-3 text-lg">
+                    <button id="btn-download" class="px-6 sm:px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-3 text-base sm:text-lg">
                         <i class="fa-solid fa-download text-xl"></i> تحميل ملف الترجمة (.srt)
                     </button>
                     <button id="btn-start-over" class="px-6 py-4 rounded-xl text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-600 transition font-bold flex items-center justify-center gap-2">
@@ -228,11 +219,10 @@
                     </button>
                 </div>
 
-                <!-- Usage Guide (Collapsible) -->
                 <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/50 rounded-xl p-4 text-right text-base text-slate-800 dark:text-slate-200">
-                    <button id="toggle-usage-guide" class="flex items-center justify-between w-full text-emerald-800 dark:text-emerald-400 font-bold hover:text-emerald-900 dark:hover:text-emerald-300 transition-colors outline-none">
-                        <span class="flex items-center gap-2"><i class="fa-solid fa-tv text-lg"></i> كيف أستخدم هذا الملف لمشاهدة الفيلم؟ (دليل التشغيل)</span>
-                        <i class="fa-solid fa-chevron-down transition-transform duration-300" id="usage-guide-chevron"></i>
+                    <button id="toggle-usage-guide" class="flex items-center justify-between w-full text-emerald-800 dark:text-emerald-400 font-bold hover:text-emerald-900 dark:hover:text-emerald-300 transition-colors outline-none text-right">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-tv text-lg shrink-0"></i> كيف أستخدم هذا الملف لمشاهدة الفيلم؟</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 shrink-0" id="usage-guide-chevron"></i>
                     </button>
                     <div id="usage-guide-section" class="hidden mt-4 pt-4 border-t border-emerald-200 dark:border-emerald-800/50 space-y-5 text-sm">
                         
@@ -244,7 +234,7 @@
                         <div class="bg-white dark:bg-slate-900 rounded-lg p-4 shadow-sm border border-emerald-100 dark:border-emerald-800/50">
                             <h4 class="font-bold text-emerald-700 dark:text-emerald-400 mb-2 flex items-center gap-2"><i class="fa-solid fa-desktop"></i> السيناريو الثاني: المشاهدة على شاشة ذكية (Smart TV)</h4>
                             <p class="text-slate-700 dark:text-slate-300 leading-relaxed">لتشغيل الفيلم عبر "فلاشة USB" على الشاشة الذكية، يجب أن يتطابق اسم ملف الفيديو مع اسم ملف الترجمة تماماً، وأن يكونا في نفس المجلد.</p>
-                            <p class="mt-2 text-slate-500 text-xs">مثال: <code class="bg-slate-100 dark:bg-slate-800 px-1 rounded mx-1">MyMovie.mp4</code> و <code class="bg-slate-100 dark:bg-slate-800 px-1 rounded mx-1">MyMovie.srt</code></p>
+                            <p class="mt-2 text-slate-500 text-xs text-left" dir="ltr">Example: <code class="bg-slate-100 dark:bg-slate-800 px-1 rounded">MyMovie.mp4</code> &amp; <code class="bg-slate-100 dark:bg-slate-800 px-1 rounded">MyMovie.srt</code></p>
                         </div>
 
                         <div class="bg-white dark:bg-slate-900 rounded-lg p-4 shadow-sm border border-emerald-100 dark:border-emerald-800/50">
@@ -266,7 +256,6 @@
         </div>
     </main>
 
-    <!-- Custom Toast Notification -->
     <div id="toast-container" class="fixed bottom-6 left-6 flex flex-col gap-3 z-50"></div>
 
     <script>
@@ -462,12 +451,12 @@
                 setTimeout(() => {
                     const resContainer = document.getElementById('search-results');
                     resContainer.innerHTML = `
-                        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 flex justify-between items-center transition hover:bg-slate-200 dark:hover:bg-slate-700/80">
+                        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 transition hover:bg-slate-200 dark:hover:bg-slate-700/80">
                             <div>
-                                <p class="text-sm font-bold ltr-text text-left">${query} - English.srt</p>
+                                <p class="text-sm font-bold ltr-text text-left break-all">${query} - English.srt</p>
                                 <p class="text-xs text-slate-500 mt-1">نتيجة مطابقة. جاهز للاستخراج.</p>
                             </div>
-                            <button class="bg-pink-100 dark:bg-pink-900/40 text-pink-600 dark:text-pink-400 px-4 py-2 rounded-lg font-bold text-sm hover:bg-pink-200 dark:hover:bg-pink-800 transition" 
+                            <button class="w-full sm:w-auto bg-pink-100 dark:bg-pink-900/40 text-pink-600 dark:text-pink-400 px-4 py-2 rounded-lg font-bold text-sm hover:bg-pink-200 dark:hover:bg-pink-800 transition shrink-0" 
                                 onclick="document.getElementById('raw-code-input').value='1\\n00:00:01,000 --> 00:00:04,000\\n(Sighs) I missed you.\\n\\n2\\n00:00:04,500 --> 00:00:07,000\\nWe cannot keep doing this in secret.'; document.getElementById('file-name-display').innerHTML='<span class=\\'text-pink-500 font-bold\\'>تم جلب الملف من البحث!</span>';">
                                 استخراج الملف
                             </button>
@@ -592,7 +581,7 @@
                     div.className = "flex flex-col gap-3 p-4 bg-white dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 transition hover:border-pink-300 dark:hover:border-pink-700";
                     div.innerHTML = `
                         <div class="flex justify-between items-center text-[11px] font-bold tracking-widest text-slate-500 font-mono bg-slate-50 dark:bg-slate-900 px-3 py-1 rounded-md">
-                            <span class="text-pink-600 dark:text-pink-400">التوقيت: ${block.time}</span>
+                            <span class="text-pink-600 dark:text-pink-400 text-left ltr-text" dir="ltr">Time: ${block.time}</span>
                             <span>مقطع ${block.id || (idx+1)}</span>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
