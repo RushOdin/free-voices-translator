@@ -1,4 +1,4 @@
-> ### 🚀 [CLICK HERE TO OPEN THE TRANSLATOR / اضغط هنا لفتح التطبيق المباشر](أhttps://rushodin.github.io/free-voices-translator/)
+> ### 🚀 [CLICK HERE TO OPEN THE TRANSLATOR / اضغط هنا لفتح التطبيق المباشر](أhttps://rushodin.github.io/free-voices-translator)
 
 
 # 🏳️‍🌈 Free Voices Engine (أصوات حرة)
