@@ -41,5 +41,4 @@ Simply access the live application via GitHub Pages (no installation required).
 3. **التنقيح والمراجعة:** راجع الترجمة جنباً إلى جنب مع النص الأصلي لتعديل أي سياقات ثقافية وحفظ المعنى الدرامي للمادة.
 4. **الإنتاج:** بضغطة زر، حمّل ملف الترجمة العربي واستمتع بالمشاهدة الحرة.
 
----
-*Built with logic, reason, and a commitment to absolute freedom of expression.*
+
